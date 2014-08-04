@@ -68,7 +68,6 @@ function AddGarage( szGarage, iGarage )
 
 function onPlayerEnterSphere( pPlayer, pSphere )
 {
-	pPlayer.Cash = 4000;
 	if ( !pPlayer.Vehicle || pPlayer.VehicleSeat ) return 0;
 	
 	if ( Garages_out.rawin( pSphere.ID ) ) OpenGarage( Garages_out.rawget( pSphere.ID ) );
