@@ -1,6 +1,6 @@
 #####################################################
 #####################################################
-### Extended Garages v1.0 R2 by Stoku
+### Extended Garages v1.0 R3 by Stoku
 ### www.lck.vc-mp.pl
 #####################################################
 #####################################################
@@ -25,8 +25,11 @@
   www.celakarna.pl
 
 5. Changelog
+- Version 1.0 R3 (08.08.2014):
+Added keybinds for accept/cancel (Y/N by default)
+
 - Version 1.0 R2 (04.08.2014):
-Add support for Liberty Unleashed 0.1.0.15
+Added support for Liberty Unleashed 0.1.0.15
 
 - Version 1.0 (03.06.2014):
 Initial release

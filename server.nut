@@ -1,5 +1,5 @@
 /* ############################################################## */
-/* #			Extended Garages v1.0 R2 by Stoku				# */
+/* #			Extended Garages v1.0 R3 by Stoku				# */
 /* #					Have fun!								# */
 /* ############################################################## */
 
@@ -17,7 +17,13 @@ function onScriptLoad()
 	
 	LoadModule( "lu_ini" );
 	
+	print("----------- Extended Garages v1.0 R3 ----------");
+	print( "" );
+	
 	LoadGarages();
+	
+	print( "" );
+	print("-----------------------------------------------");
 }
 
 function LoadGarages()
@@ -63,7 +69,7 @@ function AddGarage( szGarage, iGarage )
 		Garages_out.rawset( pSphere_out.ID, iGarage );
 	}
 	
-	print( szGarage + " " + iGarage );
+	print( "Adding garage: " + szGarage );
 }
 
 function onPlayerEnterSphere( pPlayer, pSphere )

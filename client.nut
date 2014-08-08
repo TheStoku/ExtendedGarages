@@ -1,5 +1,5 @@
 /* ############################################################## */
-/* #			Extended Garages v1.0 R2 by Stoku				# */
+/* #			Extended Garages v1.0 R3 by Stoku				# */
 /* #					Have fun!								# */
 /* ############################################################## */
 
@@ -8,6 +8,9 @@ gPromptButton1 <- null;
 gPromptButton2 <- null;
 
 local iGarageID = 0;
+
+local KEY_ACCEPT = 'Y';
+local KEY_CANCEL = 'N';
 
 pLocalPlayer <- FindLocalPlayer();
 
@@ -63,26 +66,36 @@ function onScriptLoad()
 
 function Prompt_Handle1()
 {
-	ShowMouseCursor( false );
-	gPromptWindow.Visible = false;
-	
 	CallServerFunc( "extended_garages/server.nut", "EVENT_Prompt_Yes", pLocalPlayer, iGarageID );
+	
+	ClosePromptWindow();
 }
 
 function Prompt_Handle2()
 {
-	ShowMouseCursor( false );
-	gPromptWindow.Visible = false;
-	
 	CallServerFunc( "extended_garages/server.nut", "EVENT_Prompt_No", pLocalPlayer, iGarageID );
+	
+	ClosePromptWindow();
 }
 
 function ShowPromptWindow( szText, iGarage )
 {
+	BindKey( KEY_ACCEPT, BINDTYPE_DOWN, "Prompt_Handle1" );
+	BindKey( KEY_CANCEL, BINDTYPE_DOWN, "Prompt_Handle2" );
+	
 	iGarageID = iGarage;
 	
 	gPromptWindow.TitleText = szText;
 	
 	gPromptWindow.Visible = true;
 	ShowMouseCursor( true );
+}
+
+function ClosePromptWindow()
+{
+	UnBindKey( KEY_ACCEPT, BINDTYPE_DOWN, "Prompt_Handle1" );
+	UnBindKey( KEY_CANCEL, BINDTYPE_DOWN, "Prompt_Handle2" );
+	
+	ShowMouseCursor( false );
+	gPromptWindow.Visible = false;
 }
